@@ -1,0 +1,12 @@
+# 设备名称
+Device = "test device"
+# SMTP服务器地址
+SmtpHost = "smtp.qq.com"
+# SMTP服务器端口
+SmtpPort = 587
+# 发件人地址
+From = "xxxx@qq.com"
+# 发件人密码（部分供应商使用授权码，如QQ邮箱）
+Password = "xxxxx"
+# 收件人地址
+To = "xxxx@qq.com"
