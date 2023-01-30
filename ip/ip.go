@@ -19,7 +19,7 @@ func GetIPInfo() (*string, error) {
 		return nil, err
 	}
 	// 写入获取到的IP
-	ioutil.WriteFile("old_ip.txt", body, 0755)
+	ioutil.WriteFile("ip.txt", body, 0755)
 	s := string(body)
 	return &s, nil
 }
@@ -28,7 +28,7 @@ func GetIPInfo() (*string, error) {
 读取旧IP方法
 */
 func ReadOldIP() (*string, error) {
-	file, err := ioutil.ReadFile("old_ip.txt")
+	file, err := ioutil.ReadFile("ip.txt")
 	if err != nil {
 		return nil, err
 	}
