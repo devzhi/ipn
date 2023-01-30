@@ -4,7 +4,6 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
-	"os"
 )
 
 /*
@@ -20,12 +19,7 @@ func GetIPInfo() (*string, error) {
 		return nil, err
 	}
 	// 写入获取到的IP
-	f, err := os.OpenFile("old_ip.txt", os.O_RDWR|os.O_TRUNC|os.O_CREATE, 0766)
-	if err != nil {
-		return nil, err
-	}
-	defer f.Close()
-	f.Write(body)
+	ioutil.WriteFile("old_ip.txt", body, 0755)
 	s := string(body)
 	return &s, nil
 }
