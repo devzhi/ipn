@@ -18,6 +18,13 @@ func GetIPInfo() (*string, error) {
 	if err != nil {
 		return nil, err
 	}
+	// 写入获取到的IP
+	f, err := os.OpenFile("old_ip.txt", os.O_RDWR|os.O_TRUNC|os.O_CREATE, 0766)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+	f.Write(body)
 	s := string(body)
 	return &s, nil
 }
