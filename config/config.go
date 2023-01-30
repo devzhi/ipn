@@ -13,7 +13,7 @@ type Config struct {
 	SmtpPort int
 	From     string
 	Password string
-	To       string
+	To       []string
 }
 
 var conf Config
