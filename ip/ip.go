@@ -2,6 +2,7 @@ package ip
 
 import (
 	"io"
+	"io/ioutil"
 	"net/http"
 	"os"
 )
@@ -33,28 +34,11 @@ func GetIPInfo() (*string, error) {
 读取旧IP方法
 */
 func ReadOldIP() (*string, error) {
-	f, err := os.Open("old_ip.txt")
+	file, err := ioutil.ReadFile("old_ip.txt")
 	if err != nil {
 		return nil, err
 	}
-	defer f.Close()
-
-	fi, err := f.Stat()
-	if err != nil {
-		return nil, err
-	}
-
-	filesize := fi.Size()
-	buffer := make([]byte, filesize)
-
-	bytesread, err := f.Read(buffer)
-	if err != nil {
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	s := string(bytesread)
+	s := string(file)
 
 	return &s, nil
 }
