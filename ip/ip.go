@@ -2,7 +2,6 @@ package ip
 
 import (
 	"io"
-	"log"
 	"net/http"
 	"os"
 )
@@ -29,7 +28,6 @@ func GetIPInfo() (*string, error) {
 func ReadOldIP() (*string, error) {
 	f, err := os.Open("old_ip.txt")
 	if err != nil {
-		log.Println(err)
 		return nil, err
 	}
 	defer f.Close()
