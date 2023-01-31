@@ -9,4 +9,8 @@ From = "xxxx@qq.com"
 # 发件人密码（部分供应商使用授权码，如QQ邮箱）
 Password = "xxxxx"
 # 收件人地址
-To = ["16500682@qq.com","devzhi@outlook.com"]
+To = ["xxx@qq.com"]
+# 启用内置cron
+EnableCron = false
+# Cron表达式
+CronExp = "*/5 * * * *"

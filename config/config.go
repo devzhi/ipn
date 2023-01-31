@@ -8,12 +8,14 @@ import (
 )
 
 type Config struct {
-	Device   string
-	SmtpHost string
-	SmtpPort int
-	From     string
-	Password string
-	To       []string
+	Device     string
+	SmtpHost   string
+	SmtpPort   int
+	From       string
+	Password   string
+	To         []string
+	EnableCron bool
+	CronExp    string
 }
 
 var conf Config

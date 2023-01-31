@@ -1,13 +1,28 @@
 package main
 
 import (
+	"ipn/config"
 	"ipn/ip"
 	"ipn/mail"
 	"log"
 	"os"
+
+	"github.com/robfig/cron/v3"
 )
 
 func main() {
+	if config.GetConfig().EnableCron {
+		c := cron.New()
+		c.AddFunc(config.GetConfig().CronExp, check)
+		c.Start()
+		var block chan struct{} //nil channel
+		<-block
+	} else {
+		check()
+	}
+}
+
+func check() {
 	// 获取旧IP
 	old_ip, err := ip.ReadOldIP()
 	if err != nil && !os.IsNotExist(err) {
