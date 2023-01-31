@@ -12,7 +12,7 @@ IPN在运行时会尝试获取您的IP，若与上次运行时IP不一致，则�
 ## 使用说明
 
 1. [下载](https://github.com/devzhi/ipn/releases)对应平台的可执行文件和配置文件`config.toml`
-2. 配置定时任务，Linux下使用crond，Windows下使用计划任务，Padavan等路由器系统可直接在后台设置，弱上述条件均不具备，您也可以修改配置文件，启用内置定时任务。
+2. 配置定时任务，Linux下使用crond，Windows下使用计划任务，Padavan等路由器系统可直接在后台设置，若上述条件均不具备，您也可以修改配置文件，启用内置定时任务。
 3. Enjoy it.
 
 ## 配置文件说明
