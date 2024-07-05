@@ -13,8 +13,12 @@ import (
 func main() {
 	if config.GetConfig().EnableCron {
 		c := cron.New()
-		c.AddFunc(config.GetConfig().CronExp, check)
+		_, err := c.AddFunc(config.GetConfig().CronExp, check)
+		if err != nil {
+			log.Fatalln(err)
+		}
 		c.Start()
+		log.Println("定时任务启动成功")
 		var block chan struct{} //nil channel
 		<-block
 	} else {
