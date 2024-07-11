@@ -30,7 +30,12 @@ func GetConfig() *Config {
 		if err != nil {
 			log.Fatalln(err)
 		}
-		_, err = toml.Decode(string(tomlData), &conf)
+		tomlStr := string(tomlData)
+		// 检测编码是否为UTF-8 with BOM
+		if tomlStr[0] == 0xEF && tomlStr[1] == 0xBB && tomlStr[2] == 0xBF {
+			tomlStr = tomlStr[3:]
+		}
+		_, err = toml.Decode(tomlStr, &conf)
 		if err != nil {
 			log.Fatalln("配置文件错误：", err)
 		}
