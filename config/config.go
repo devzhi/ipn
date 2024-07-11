@@ -30,7 +30,10 @@ func GetConfig() *Config {
 		if err != nil {
 			log.Fatalln(err)
 		}
-		toml.Decode(string(tomlData), &conf)
+		_, err = toml.Decode(string(tomlData), &conf)
+		if err != nil {
+			log.Fatalln("配置文件错误：", err)
+		}
 	})
 	return &conf
 }
