@@ -2,6 +2,8 @@ IPN - IP变更通知工具
 ---
 IPN在运行时会尝试获取您的IP，若与上次运行时IP不一致，则会向您发送邮件通知。
 
+[English Documentation](https://github.com/devzhi/ipn/blob/main/README_EN.md)
+
 ## 特性
 
 - 获取公网IP并发送至指定邮箱
