@@ -15,6 +15,7 @@ type Config struct {
 	From       string
 	Password   string
 	To         []string
+	AlwaysSend bool
 	EnableCron bool
 	CronExp    string
 }

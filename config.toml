@@ -10,6 +10,8 @@ From = "xxxx@qq.com"
 Password = "xxxxx"
 # 收件人地址
 To = ["xxx@qq.com"]
+# 总是发送邮件
+AlwaysSend = false
 # 启用内置cron
 EnableCron = false
 # Cron表达式

@@ -41,6 +41,9 @@ func check() {
 	if old_ip == nil || *curr_ip != *old_ip {
 		log.Println("发现IP变更")
 		mail.SendIP(*curr_ip)
+	} else if config.GetConfig().AlwaysSend {
+		log.Println("未发现IP变更，强制发送邮件")
+		mail.SendIP(*curr_ip)
 	} else {
 		log.Println("未发现IP变更")
 	}
